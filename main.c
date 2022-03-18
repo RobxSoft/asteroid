@@ -27,6 +27,13 @@ void update(){
     }
 }
 
+int getKey(void){
+    int ch;
+    ch = getch();
+    printf("%d", ch);
+    return 1;
+}
+
 void startGame(){
     for(int y=0; y < SIZE_Y+1; y++){
         for(int x=0; x < SIZE_X; x++){
@@ -53,19 +60,18 @@ void draw(){
 }
 
 int main(void){
+    int gameFinished = 0;
+
     startGame();
     spawnAsteroid();
     draw();
 
-    printf("\n\n");
-
-    update();
-    draw();
-    
-    printf("\n\n");
-    
-    update();
-    draw();
+    while (!gameFinished){
+        draw();
+        getKey();
+        spawnAsteroid();
+        update();
+    }
 
     return 1;
 }

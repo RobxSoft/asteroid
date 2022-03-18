@@ -1,8 +1,12 @@
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <stdbool.h>
 #include <string.h>
+#include <curses.h>
+#include <SDL/SDL.h>
 
-const int SIZE_X = 20;
-const int SIZE_Y = 6;
+#define SIZE_X 20
+#define SIZE_Y 6
+
 char *GAME[SIZE_Y][SIZE_X];
