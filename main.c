@@ -7,12 +7,15 @@ void spawnAsteroid(){
 }
 
 void update(){
-    for(int y=SIZE_Y-1; y > 0; y--){
-        for(int x=SIZE_X-1; x > 0; x--){
+    for(int y=0; y < SIZE_Y+1; y++){
+        for(int x=0; x < SIZE_X; x++){
             if(strcmp(GAME[y][x], "*") == 0){
                 GAME[y][x] = " ";
                 if(x>0){
-                    GAME[y][x-5] = "*";
+                    if(strcmp(GAME[y][x-1], ">") == 0){
+                        //ICI
+                    }
+                    GAME[y][x-1] = "*";
                 }
             }else if (strcmp(GAME[y][x], "-") == 0){
                 GAME[y][x] = " ";
@@ -60,7 +63,7 @@ int main(void){
     draw();
     
     printf("\n\n");
-
+    
     update();
     draw();
 
